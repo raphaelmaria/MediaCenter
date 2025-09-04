@@ -1,0 +1,17 @@
+[Unit]
+Description=Sonarr Telegram Bot
+After=network-online.target # Garante que a rede esteja ativa antes de iniciar
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=seu_usuario # Mude para o seu nome de usuário real no Linux
+WorkingDirectory=/home/seu_usuario/bots # O diretório onde está seu script
+ExecStart=/home/seu_usuario/bots/venv_bot/bin/python /home/seu_usuario/bots/sonarr_telegram_bot.py
+Restart=on-failure # Reinicia o serviço se ele falhar
+RestartSec=10s     # Espera 10 segundos antes de tentar reiniciar
+StandardOutput=journal # Saída padrão vai para o journald (logs do sistema)
+StandardError=journal  # Erros também vão para o journald
+
+[Install]
+WantedBy=default.target # Inicia quando o usuário loga (para serviços de usuário)

@@ -1,0 +1,22 @@
+[Unit]
+Description=Radarr Bot Daemon
+After=syslog.target network.target
+
+# After=syslog.target network.target sonarr.service radarr.service
+
+[Service]
+WorkingDirectory=/var/scripts/bots/radarr
+User=root
+Group=root
+UMask=0002
+Restart=on-failure
+RestartSec=5
+Type=simple
+ExecStart=/usr/bin/python3 /var/scripts/bots/radarr/bot_radarr.py
+KillSignal=SIGINT
+TimeoutStopSec=20
+SyslogIdentifier=Rdarr-Bot
+ExecStartPre=/bin/sleep 30
+
+[Install]
+WantedBy=multi-user.target

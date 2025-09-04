@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # INSTALAÇÃO DO MEDIA CENTER DOWNLOAD NO ARM64 (Raspberry Pi OS 64 bits)
-
+IP=$(hostname -I | awk '{print $1}')
 # Atualiza os repositórios e instala dependências
 sudo apt update
 sudo apt install -y wget apt-transport-https gnupg2 software-properties-common curl wget vim
@@ -16,22 +16,23 @@ sudo mkdir -p /opt/mediacenter/scripts
 # Iniciando a instalação do Media Center Download
 
 # Instalando Radarr
-curl -o  | sudo bash
+curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/93258ac4eeb2a477328e6743c06cd90983e38a71/scripts/ubuntu_install_radarr.sh' | sudo bash
 
 # Instalando Sonarr
-curl | sudo bash
+curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/93258ac4eeb2a477328e6743c06cd90983e38a71/scripts/ubuntu_install_sonarr.sh' | sudo bash
 
 # Instalando Prowlarr
-curl | sudo bash
+curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/93258ac4eeb2a477328e6743c06cd90983e38a71/scripts/ubuntu_install_prowlarr.sh' | sudo bash
 
 # Instalando QBittorrent
-curl | sudo bash
+curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/93258ac4eeb2a477328e6743c06cd90983e38a71/scripts/ubuntu_install_qbitorrent.sh' | sudo bash
 
 # Instalando o Flaresolverr
-curl | sudo bash
+curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/93258ac4eeb2a477328e6743c06cd90983e38a71/scripts/ubuntu_install_flaresolverr.sh' | sudo bash
 
 # Instalando e configurando o Nginx
-curl | sudo bash
+curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/93258ac4eeb2a477328e6743c06cd90983e38a71/scripts/ubuntu_install_nginx.sh' | sudo bash
 
-
+# Instalando o Fail2Ban
+curl -o | sudo bash
 

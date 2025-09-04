@@ -153,8 +153,8 @@ sudo chmod +x $SCRIPT_PATH
 echo "✅ Script instalado em $SCRIPT_PATH e cron configurado para rodar a cada 1 hora."
 
 
-sudo chmod +x /opt/scripts/updateMediacenter.sh
-sudo bash /opt/scripts/updateMediacenter.sh
+sudo chmod +x /opt/mediacenter/scripts/update_mediahub.sh
+sudo bash /opt/mediacenter/scripts/update_mediahub.sh
 
 '''O Nginx foi instalado e o portal MediaHub está disponível.
 Para acessar o portal, abra o navegador e digite http://$IP

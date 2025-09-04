@@ -8,8 +8,8 @@ lineRandom=$((RANDOM % "$lineNumber" + 1 ))
 message=$(sed -n "${lineRandom}p" "$messageList")
 
 # Configuracao do Telegram
-bot='6417757954:AAF8yJ4XFapsIq-P1vBZ-8cxwS8MNRcG4Ns'
-chatId='-1001764367092'
+bot='[]' # Token do Bot]'
+chatId='[]' # ID do Chat]'
 
 # Configuracao de Log
 data=$(date +%Y-%m-%d)

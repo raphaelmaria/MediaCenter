@@ -34,5 +34,5 @@ curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/93258ac4eeb2a477328e67
 curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/93258ac4eeb2a477328e6743c06cd90983e38a71/scripts/ubuntu_install_nginx.sh' | sudo bash
 
 # Instalando o Fail2Ban
-curl -o | sudo bash
+curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/ddabe44d1f8db0a8c30fd14ba46fba9fac21ff5c/scripts/ubuntu_install_fail2ban.sh' | sudo bash
 

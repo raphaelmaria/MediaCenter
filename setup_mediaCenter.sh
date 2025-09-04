@@ -16,23 +16,23 @@ sudo mkdir -p /opt/mediacenter/scripts
 # Iniciando a instalação do Media Center Download
 
 # Instalando Radarr
-curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/93258ac4eeb2a477328e6743c06cd90983e38a71/scripts/ubuntu_install_radarr.sh' | sudo bash
+curl -O 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_radarr.sh' | sudo bash
 
 # Instalando Sonarr
-curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/93258ac4eeb2a477328e6743c06cd90983e38a71/scripts/ubuntu_install_sonarr.sh' | sudo bash
+curl -O 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_sonarr.sh' | sudo bash
 
 # Instalando Prowlarr
-curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/93258ac4eeb2a477328e6743c06cd90983e38a71/scripts/ubuntu_install_prowlarr.sh' | sudo bash
+curl -O 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_prowlarr.sh' | sudo bash
 
 # Instalando QBittorrent
-curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/93258ac4eeb2a477328e6743c06cd90983e38a71/scripts/ubuntu_install_qbitorrent.sh' | sudo bash
+curl -O 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_qbitorrent.sh' | sudo bash
 
 # Instalando o Flaresolverr
-curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/93258ac4eeb2a477328e6743c06cd90983e38a71/scripts/ubuntu_install_flaresolverr.sh' | sudo bash
+curl -O 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_flaresolverr.sh' | sudo bash
 
 # Instalando e configurando o Nginx
-curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/93258ac4eeb2a477328e6743c06cd90983e38a71/scripts/ubuntu_install_nginx.sh' | sudo bash
+curl -O 'hhttps://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_nginx.sh' | sudo bash
 
 # Instalando o Fail2Ban
-curl -o 'https://github.com/raphaelmaria/MediaCenter/blob/ddabe44d1f8db0a8c30fd14ba46fba9fac21ff5c/scripts/ubuntu_install_fail2ban.sh' | sudo bash
+curl -O 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_fail2ban.sh' | sudo bash
 

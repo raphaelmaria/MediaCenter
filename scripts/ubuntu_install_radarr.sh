@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-ARCH=uname -m
+ARCH = $(uname -m)
 if $ARCH = "x86_64"
 then
   echo "Instalando Prowlarr para arquitetura x64"

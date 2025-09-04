@@ -6,4 +6,4 @@ Feito por Raphael Oliveira -
 https://wiki.servarr.com/sonarr/installation/linux
 '''
 
-curl -o https://raw.githubusercontent.com/Sonarr/Sonarr/develop/distribution/debian/install.sh | sudo bash
+curl https://raw.githubusercontent.com/Sonarr/Sonarr/develop/distribution/debian/install.sh | sudo bash

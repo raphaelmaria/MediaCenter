@@ -21,7 +21,7 @@ sudo apt -y install curl
 
 Depois rode o comando abaixo para iniciar o script de instalação:
 ```bash
- curl -o 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/setup_mediaCenter.sh' | sudo bash
+curl -fsSL https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/setup_mediaCenter.sh | sed 's/\r$//' | sudo bash
  ````
 
 ### Ordem de instalação

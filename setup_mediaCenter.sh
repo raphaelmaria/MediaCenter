@@ -16,23 +16,23 @@ sudo mkdir -p /opt/mediacenter/scripts
 # Iniciando a instalação do Media Center Download
 
 # Instalando Radarr
-curl -O 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_radarr.sh' | sudo bash
+curl -fsSL https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_radarr.sh | sed 's/\r$//' | sudo bash
 
 # Instalando Sonarr
-curl -O 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_sonarr.sh' | sudo bash
+curl -fsSL 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_sonarr.sh' | sed 's/\r$//' | sudo bash
 
 # Instalando Prowlarr
-curl -O 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_prowlarr.sh' | sudo bash
+curl -fsSL 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_prowlarr.sh' | sed 's/\r$//' | sudo bash
 
 # Instalando QBittorrent
-curl -O 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_qbitorrent.sh' | sudo bash
+curl -fsSL 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_qbitorrent.sh' | sed 's/\r$//' | sudo bash
 
 # Instalando o Flaresolverr
-curl -O 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_flaresolverr.sh' | sudo bash
+curl -fsSL 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_flaresolverr.sh' | sed 's/\r$//' | sudo bash
 
 # Instalando e configurando o Nginx
-curl -O 'hhttps://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_nginx.sh' | sudo bash
+curl -fsSL 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_nginx.sh' | sed 's/\r$//' | sudo bash
 
 # Instalando o Fail2Ban
-curl -O 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_fail2ban.sh' | sudo bash
+curl -fsSL 'https://rmtechfiles.s3.us-east-1.amazonaws.com/mediaCenter/ubuntu_install_fail2ban.sh' | sed 's/\r$//' | sudo bash
 

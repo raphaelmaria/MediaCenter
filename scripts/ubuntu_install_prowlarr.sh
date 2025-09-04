@@ -6,18 +6,18 @@ Feito por Raphael Oliveira -
 https://wiki.servarr.com/prowlarr/installation/linux
 '''
 
-ARCH=uname -m
-if $ARCH = "x86_64"
-then
-  echo "Instalando Prowlarr para arquitetura x64"
-  wget --content-disposition 'http://prowlarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64'
-elif $ARCH = "aarch64"
-then
-  echo "Instalando Prowlarr para arquitetura ARM64"
-  wget --content-disposition 'http://prowlarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=arm64'
+
+ARCH=$(uname -m)
+
+if [ "$ARCH" = "x86_64" ]; then
+    echo "Arquitetura detectada: x86_64 (amd64)"
+    # comandos de instalação amd64
+elif [ "$ARCH" = "aarch64" ]; then
+    echo "Arquitetura detectada: ARM64 (aarch64)"
+    # comandos de instalação arm64
 else
-  echo "Arquitetura não suportada: $ARCH"
-  exit 1
+    echo "Arquitetura não suportada: $ARCH"
+    exit 1
 fi
 
 sudo apt -y install curl sqlite3

@@ -26,5 +26,4 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl enable flaresolverr.service
 sudo systemctl start flaresolverr.service
-sudo systemctl status flaresolverr.service
-exit (0)
+

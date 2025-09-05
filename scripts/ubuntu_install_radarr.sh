@@ -5,15 +5,18 @@ ARCH=$(uname -m)
 if [ "$ARCH" = "x86_64" ]; then
     echo "Arquitetura detectada: x86_64 (amd64)"
     # comandos de instalação amd64
+    wget --content-disposition 'http://radarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64'
+
 elif [ "$ARCH" = "aarch64" ]; then
     echo "Arquitetura detectada: ARM64 (aarch64)"
     # comandos de instalação arm64
+    wget --content-disposition 'http://radarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=arm64'
+
 else
     echo "Arquitetura não suportada: $ARCH"
     exit 1
 fi
 # Baixando a última versão do Radarr
-sudo apt install curl sqlite3
 tar -xvzf Radarr*.linux*.tar.gz
 sudo mv Radarr /opt/
 sudo adduser --system --group --no-create-home radarr

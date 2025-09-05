@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 ### INSTALAÇÃO DO NGINX E CONFIGURAÇÃO DO PORTAL MEDIAHUB ###
 # Criado por Raphael Oliveira
@@ -6,23 +6,15 @@
 # Versão: 1.0
 
 ### VARIAVEIS ###
-IP=$(hostname -I | awk '{print $1}')
-
+$SCRIPT_PATH="/opt/mediacenter/scripts"
 ### FIM DAS VARIAVEIS ###
-
-# Atualiza os repositórios e instala o Nginx
-sudo apt update
-sudo apt install nginx -y
-
-sudo mkdir -p /var/www/mediahub
-sudo chown -R $USER:$USER /var/www/mediahub
 
 cat << EOF | sudo tee /var/www/mediahub/index.html > /dev/null
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>MediaHub</title>
+  <title>Media Center</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -74,7 +66,7 @@ cat << EOF | sudo tee /var/www/mediahub/index.html > /dev/null
   </style>
 </head>
 <body>
-  <h1>🎬 MediaHub</h1>
+  <h1>🎬 Media Center</h1>
   <div class="apps">
     <a class="app" href="http://127.0.0.1:7878" target="_blank">
       <img src="https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/radarr-icon.png" alt="Radarr">
@@ -95,12 +87,23 @@ cat << EOF | sudo tee /var/www/mediahub/index.html > /dev/null
   </div>
 
   <footer>
-    &copy; 2025 MediaHub - Todos os direitos reservados.
+    &copy; 2025 Raphael Maria - Todos os direitos reservados.
   </footer>
 </body>
 </html>
 EOF
-'''Configuração da página do portal MediaHub'''
+
+# Atualiza os repositórios e instala o Nginx
+sudo apt update
+sudo apt -y full-upgrade
+sudo apt -y install -f
+sudo apt install nginx -y
+
+sudo mkdir -p /var/www/mediahub
+sudo chown -R $USER:$USER /var/www/mediahub
+
+
+# Configuração da página do portal MediaHub
 
 cat << EOF | sudo tee /etc/nginx/sites-available/mediahub > /dev/null
 server {
@@ -115,25 +118,19 @@ server {
     }
 }
 EOF
-''' Configuração do Nginx para servir o portal MediaHub'''
+
+# Configuração do Nginx para servir o portal MediaHub'''
 
 sudo ln -s /etc/nginx/sites-available/mediahub /etc/nginx/sites-enabled/
 
 sudo systemctl enable --now nginx
 sudo systemctl start nginx
 
-sudo rm /etc/nginx/sites-enabled/default
+sudo rm -rf /etc/nginx/sites-enabled/default
 sudo nginx -t
 sudo systemctl reload nginx
 
 cat << EOF | sudo tee /opt/mediacenter/scripts/update_mediahub.sh > /dev/null
-#!/bin/bash
-
-# Caminho do script que atualiza o HTML
-SCRIPT_PATH="/opt/mediacenter/scripts/update_mediahub.sh"
-
-# Criar o script principal
-cat << 'EOF' | sudo tee $SCRIPT_PATH > /dev/null
 #!/bin/bash
 HTML="/var/www/mediahub/index.html"
 IP=$(hostname -I | awk '{print $1}')
@@ -144,17 +141,16 @@ sed -i "s|http://[0-9\.]*:9117|http://$IP:9117|g" $HTML
 sed -i "s|http://[0-9\.]*:9696|http://$IP:9696|g" $HTML
 EOF
 
-# Permissão de execução
-sudo chmod +x $SCRIPT_PATH
-
 # Garantir que a linha do cron não seja duplicada
 ( sudo crontab -l 2>/dev/null | grep -v "$SCRIPT_PATH" ; echo "0 * * * * $SCRIPT_PATH" ) | sudo crontab -
 
 echo "✅ Script instalado em $SCRIPT_PATH e cron configurado para rodar a cada 1 hora."
 
 
-sudo chmod +x /opt/mediacenter/scripts/update_mediahub.sh
+# Permissão de execução
+sudo chmod +X /opt/mediacenter/scripts/update_mediahub.sh
 sudo bash /opt/mediacenter/scripts/update_mediahub.sh
 
-'''O Nginx foi instalado e o portal MediaHub está disponível.
-Para acessar o portal, abra o navegador e digite http://$IP
+# O Nginx foi instalado e o portal MediaHub está disponível.
+# Para acessar o portal, abra o navegador e digite http://$IP
+exit

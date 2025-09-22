@@ -1,5 +1,29 @@
 #!/usr/bin/bash
 
+# Este é o hash SHA-256 da palavra "MARIO".
+# Para gerar o hash de outra palavra, use o comando:
+# echo -n "SUA_PALAVRA_AQUI" | sha256sum
+SECRET_HASH="7d025b394e339a957223b373415170d19f4a01c36f56c70141f224976451e843"
+
+# Solicita a senha de forma invisível
+read -s -p "Digite a senha para continuar: " USER_INPUT
+
+# Pula para uma nova linha depois da entrada
+echo
+
+# Gera o hash da entrada do usuário e compara com o hash secreto
+USER_HASH=$(echo -n "$USER_INPUT" | sha256sum | awk '{print $1}')
+
+if [[ "$USER_HASH" != "$SECRET_HASH" ]]; then
+    echo "Senha incorreta. A instalação foi cancelada."
+    echo "Por favor, entre em contato com o criador do script para obter a senha."
+    exit 1
+fi
+
+echo "Senha correta. Prosseguindo com a instalação..."
+
+# O restante do seu script segue a partir daqui
+# ...
 # INSTALAÇÃO DO MEDIA CENTER DOWNLOAD NO ARM64 (Raspberry Pi OS 64 bits)
 IP=$(hostname -I | awk '{print $1}')
 # Atualiza os repositórios e instala dependências

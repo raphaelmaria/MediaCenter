@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo apt install xvfb
+sudo apt install libatk1.0-0
+
 sudo wget https://github.com/FlareSolverr/FlareSolverr/releases/download/v3.4.0/flaresolverr_linux_x64.tar.gz
 sudo tar -xvzf flaresolverr_linux_x64.tar.gz
 sudo mv flaresolverr /opt/
